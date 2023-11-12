@@ -6,7 +6,15 @@ Designed for typescript users to handle type errors and enable auto-code-complet
 **Current Material UI version: 5.14.17**
 **Date: 12th November, 2023**
 
-### Step 1: Create custom theme using mui's `createTheme` function
+## Table of Contents:
+1. [Create custom theme using mui’s createTheme function](#section-1-create-custom-theme-using-muis-createtheme-function)
+1. [Adding a custom theme level property](#section-2-adding-a-custom-theme-level-property)
+1. [Adding a custom theme-palette property](#section-3-adding-a-custom-theme-palette-property)
+1. [Adding a custom property inside a palette-color](#section-4-adding-a-custom-property-inside-a-palette-color)
+1. [Conclusion](#conclusion)
+1. [About the Developer](#about-the-developer)
+
+### Section 1: Create custom theme using mui's `createTheme` function
 
 In order to create our own customised theme, we need to use `createTheme` function.
 
@@ -23,7 +31,7 @@ export default function App() {
             }
         }
     });
-    
+
     return (
         <ThemeProvider theme={theme}>
             /* the box below will have orange[500] color as defined in the createTheme function */
@@ -33,7 +41,7 @@ export default function App() {
 }
 ```
 
-### Step 2: Adding a custom theme level property
+### Section 2: Adding a custom theme level property
 
 #### Section 2.1
 
@@ -50,7 +58,7 @@ export default function App() {
             danger: "#e53e3e"
         }
     });
-    
+
     return (
         <ThemeProvider theme={theme}>
             /* the box below will have orange[500] color as defined in the createTheme function */
@@ -109,7 +117,7 @@ declare module "@mui/material/styles" {
             danger: string
         }
     }
-    
+
     interface ThemeOptions {
         status: {
             danger: CSSProperties["color"]
@@ -148,7 +156,7 @@ export default function App() {
             }
         }
     });
-    
+
     return (
         <ThemeProvider theme={theme}>
             /* the box below will have orange[500] color as defined in the createTheme function */
@@ -169,8 +177,8 @@ declare module "@mui/material/styles" {
     interface Palette {
         myCustomProperty?: PaletteColor
     }
-    
-    // counters the errors inside the createTheme function 
+
+    // counters the errors inside the createTheme function
     interface PaletteOptions {
         myCustomProperty?: PaletteColorOptions
     }
@@ -199,7 +207,7 @@ export default function App() {
             }
         }
     });
-    
+
     return (
         <ThemeProvider theme={theme}>
             /* the box below will have orange[500] color as defined in the createTheme function */
@@ -218,17 +226,17 @@ declare module "@mui/material/styles" {
     interface Palette {
         myCustomProperty?: PaletteColor
     }
-    
+
     interface PaletteOptions {
         myCustomProperty?: PaletteColorOptions
     }
-    
+
     // add the following configuration
     // counters errors while creating custom property
     interface SimplePaletteColorOptions {
         darker?: string
     }
-    
+
     // helps with autocompletion
     interface PaletteColor {
         darker?: string
@@ -244,6 +252,45 @@ That's it for this tutorial, the complete **_theme.d.ts_** file is below.
 
 ```js
 import { CSSProperties } from "react";
+import { PaletteColor, PaletteColorOptions, ThemeOptions } from "@mui/material/styles";
+
+declare module "@mui/material/styles" {
+    interface ThemeOptions {
+        status: {
+            danger: CSSProperties["color"]
+        }
+    }
+
+    interface ThemeOptions {
+        status: {
+            danger: CSSProperties["color"]
+        }
+    }
+
+    interface Palette {
+        myCustomProperty?: PaletteColor
+    }
+
+    interface PaletteOptions {
+        myCustomProperty?: PaletteColorOptions
+    }
+
+    interface SimplePaletteColorOptions {
+        darker?: string
+    }
+
+    interface PaletteColor {
+        darker?: string
+    }
+}
+```
+
+### Conclusion
+
+1. For adding custom properties at theme level, add the following (here, we are taking status.danger as an example)
+
+```js
+import { CSSProperties } from "react";
 import { ThemeOptions } from "@mui/material/styles";
 
 declare module "@mui/material/styles" {
@@ -252,25 +299,41 @@ declare module "@mui/material/styles" {
             danger: CSSProperties["color"]
         }
     }
-    
+
     interface ThemeOptions {
         status: {
             danger: CSSProperties["color"]
         }
     }
-    
+}
+```
+
+2. For adding custom properties at theme-palette level, add the following (here, we are taking myCustomProperty as an example)
+
+```js
+import { PaletteColor, PaletteColorOptions } from "@mui/material/styles";
+
+declare module "@mui/material/styles" {
     interface Palette {
         myCustomProperty?: PaletteColor
     }
-    
+
     interface PaletteOptions {
         myCustomProperty?: PaletteColorOptions
     }
-    
+}
+```
+
+3. For adding additional properies inside each theme-palette property, add the following (here, we are taking myCustomProperty.darker as an example)
+
+Example: We already know that theme.palette.primary contains the following properties: main, light, dark, contrastText. Now, say we want to add another property called darker, this needs typescript configurations to handle type related errors, so here's how we counter it
+
+```js
+declare module "@mui/material/styles" {
     interface SimplePaletteColorOptions {
         darker?: string
     }
-    
+
     interface PaletteColor {
         darker?: string
     }
