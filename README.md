@@ -8,7 +8,7 @@ Designed for typescript users to handle type errors and enable auto-code-complet
 
 **Date: 12th November, 2023**
 
-## Table of Contents:
+### Table of Contents:
 1. [Create custom theme using mui’s createTheme function](#section-1-create-custom-theme-using-muis-createtheme-function)
 1. [Adding a custom theme level property](#section-2-adding-a-custom-theme-level-property)
 1. [Adding a custom theme-palette property](#section-3-adding-a-custom-theme-palette-property)
@@ -16,7 +16,7 @@ Designed for typescript users to handle type errors and enable auto-code-complet
 1. [Conclusion](#conclusion)
 1. [About the Developer](#about-the-developer)
 
-### Section 1: Create custom theme using mui's `createTheme` function
+## Section 1: Create custom theme using mui's `createTheme` function
 
 In order to create our own customised theme, we need to use `createTheme` function.
 
@@ -43,7 +43,7 @@ export default function App() {
 }
 ```
 
-### Section 2: Adding a custom theme level property
+## Section 2: Adding a custom theme level property
 
 #### Section 2.1
 
@@ -138,7 +138,7 @@ In **section 2.1**, we tried to add a custom property at the theme level which t
 
 This does not fix the issue completely, because when we try to use that custom property inside a component, it throws an error. In order to counter that error, we added more configuration inside the **_theme.d.ts_** file inside **section 2.2**.
 
-### Section 3: Adding a custom theme-palette property
+## Section 3: Adding a custom theme-palette property
 
 Let's say we want to add custom colors to our website and for that we need to add custom theme-palette properties to our design system.
 
@@ -188,7 +188,7 @@ declare module "@mui/material/styles" {
 
 ```
 
-### Section 4: Adding a custom property inside a palette-color
+## Section 4: Adding a custom property inside a palette-color
 
 As we already know that each of the main elements of the palette contain four elements viz. **_main, light, dark, contrastText_**. Let's say we want to customize this behavior and add an even darker property to one of these elements.
 
@@ -283,7 +283,7 @@ declare module "@mui/material/styles" {
 }
 ```
 
-### Conclusion
+## Conclusion
 
 1. For adding custom properties at theme level, add the following (here, we are taking status.danger as an example)
 
@@ -342,7 +342,7 @@ If you find it confusing than here's the reference to mui's github code which he
 
 Feel free to contact me for any correction or any complaints regarding this tutorial: [Contact Link](https://angkushsahu.vercel.app/contact)
 
-### About the Developer
+## About the Developer
 
 Contact Me from [here](https://angkushsahu.vercel.app/contact)
 
