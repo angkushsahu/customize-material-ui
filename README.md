@@ -1,9 +1,11 @@
 # Customize Material UI
 
 Customise Material UI for specific needs.
+
 Designed for typescript users to handle type errors and enable auto-code-completion.
 
 **Current Material UI version: 5.14.17**
+
 **Date: 12th November, 2023**
 
 ## Table of Contents:
