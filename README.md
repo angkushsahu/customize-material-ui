@@ -246,10 +246,6 @@ declare module "@mui/material/styles" {
 }
 ```
 
-If you find it confusing than here's the reference to mui's github code which help you understand things better: [Link to github's theme customization link file](https://github.com/mui/material-ui/blob/master/packages/mui-material/src/styles/createPalette.d.ts)
-
-Feel free to contact me for any correction or any complaints regarding this tutorial: [Contact Link](https://angkushsahu.vercel.app/contact)
-
 That's it for this tutorial, the complete **_theme.d.ts_** file is below.
 
 ```js
@@ -341,6 +337,10 @@ declare module "@mui/material/styles" {
     }
 }
 ```
+
+If you find it confusing than here's the reference to mui's github code which help you understand things better: [Link to github's theme customization link file](https://github.com/mui/material-ui/blob/master/packages/mui-material/src/styles/createPalette.d.ts)
+
+Feel free to contact me for any correction or any complaints regarding this tutorial: [Contact Link](https://angkushsahu.vercel.app/contact)
 
 ### About the Developer
 
